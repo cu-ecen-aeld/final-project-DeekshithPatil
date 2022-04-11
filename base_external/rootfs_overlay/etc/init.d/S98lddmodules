@@ -1,0 +1,20 @@
+#! /bin/sh
+
+#Reference: Mastering-embedded-linux-programming Chapter 10
+
+case "$1" in
+  start)
+    echo "Starting final project module load"
+    /usr/bin/gpio_load
+    /usr/bin/module_load
+    ;;
+  stop)
+    echo "Stopping final project module load"
+    /usr/bin/gpio_unload
+    /usr/bin/module_unload
+    ;;
+  *)
+  echo "Usage: $0 {start|stop}"
+  exit 1
+esac
+exit 0
