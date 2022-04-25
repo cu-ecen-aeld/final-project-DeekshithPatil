@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_SOCKET
+	bool "socket"
+	help
+	  Includes the socket server executable in the kernel image.

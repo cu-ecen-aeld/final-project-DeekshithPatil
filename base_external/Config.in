@@ -1,1 +1,4 @@
 source "$BR2_EXTERNAL_project_base_PATH/package/gpio/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/socket/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/extra/Config.in"
+source "$BR2_EXTERNAL_project_base_PATH/package/test/Config.in"

@@ -7,11 +7,21 @@ case "$1" in
     echo "Starting final project module load"
     /usr/bin/gpio_load
     /usr/bin/module_load
+    /usr/bin/custom_load
+    /usr/bin/gpio_irq_load
+    /usr/bin/ioctl_load
+    /usr/bin/sysfs_load
+    /usr/bin/timer_load
     ;;
   stop)
     echo "Stopping final project module load"
     /usr/bin/gpio_unload
     /usr/bin/module_unload
+    /usr/bin/custom_unload
+    /usr/bin/gpio_irq_unload
+    /usr/bin/ioctl_unload
+    /usr/bin/sysfs_unload
+    /usr/bin/timer_unload
     ;;
   *)
   echo "Usage: $0 {start|stop}"

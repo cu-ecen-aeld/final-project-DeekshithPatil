@@ -1,0 +1,5 @@
+
+config BR2_PACKAGE_EXTRA
+	bool "EXTRA"
+	help
+	  Includes the custom developed gpio device driver in the kernel image.
