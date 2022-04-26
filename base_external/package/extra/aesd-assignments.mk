@@ -5,7 +5,7 @@
 #
 ##############################################################
 
-EXTRA_VERSION = '1ea4214664a5f6e21d52cdf4f002e3e2e107824e'
+EXTRA_VERSION = '19364daea90aee861a818731e705ec6034b4586e'
 
 EXTRA_SITE = 'git@github.com:Jahnavi-pinnamaneni/AESD-Device_Driver.git'
 EXTRA_SITE_METHOD = git
