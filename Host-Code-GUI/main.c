@@ -49,12 +49,12 @@ int main(int argc, char *argv[])
     bcopy((char *)server->h_addr_list[0], (char *)&serv_addr.sin_addr.s_addr,server->h_length);
     serv_addr.sin_port = htons(portno);
 
-    connect(sockfd, (struct sockaddr *)&serv_addr,sizeof(serv_addr));
-
-    argc = 1;
-
     while(1)
     {
+        connect(sockfd, (struct sockaddr *)&serv_addr,sizeof(serv_addr));
+
+        argc = 1;
+
         /* Recieve information from the user and transmit it over the network */
         get_user_data(transmit_buffer,argc, argv);
 
@@ -65,6 +65,13 @@ int main(int argc, char *argv[])
 
         printf("Press Enter to continue again\n");
         getchar();
+
+        close(sockfd);
+
+        sockfd = socket(AF_INET,SOCK_STREAM,0);
+
+        if(sockfd < 0)
+            error("ERROR opening socket!");
 
     }
 

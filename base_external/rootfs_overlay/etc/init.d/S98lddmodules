@@ -12,7 +12,7 @@ case "$1" in
     /usr/bin/timer_load
     /usr/bin/sysfs_load
     /usr/bin/ioctl_load
-    
+    #start-stop-daemon -S -n server -a /usr/bin/server
     ;;
   stop)
     echo "Stopping final project module load"
@@ -23,6 +23,7 @@ case "$1" in
     /usr/bin/timer_unload
     /usr/bin/sysfs_unload
     /usr/bin/ioctl_unload
+    #start-stop-daemon -K -n server
     ;;
   *)
   echo "Usage: $0 {start|stop}"

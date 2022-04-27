@@ -54,14 +54,10 @@ int main(int argc, char *argv[])
         error("Binding failed");
     }
 
-    //start listening on the created socket
-    listen(sockfd, 5);
+
 
     clilen = sizeof(cli_addr);
 
-    newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
-
-    printf("Client connected!\n");
 
     if(newsockfd < 0)
     {
@@ -70,6 +66,13 @@ int main(int argc, char *argv[])
 
     while(1)
     {
+        //start listening on the created socket
+        listen(sockfd, 5);
+
+        newsockfd = accept(sockfd, (struct sockaddr *)&cli_addr, &clilen);
+
+        printf("Client connected!\n");
+        
         bzero(buffer,255);
 
         n = read(newsockfd, buffer, 255); //Read from socket into buffer
@@ -81,10 +84,7 @@ int main(int argc, char *argv[])
 
         printf("Client: %s\n",buffer);
 
-        int i = strncmp("Bye", buffer, 3);
-
-        if(i == 0)
-            break;
+        close(newsockfd);
 
     }
 

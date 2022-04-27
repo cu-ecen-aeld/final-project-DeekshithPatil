@@ -5,7 +5,7 @@
 #
 ##############################################################
 
-GPIO_VERSION = '59b8b083148e2dc679f154b3be77d561e681f8e9'
+GPIO_VERSION = '83c900df8b2391a28be7aaa964222fd578656eca'
 
 GPIO_SITE = 'git@github.com:Jahnavi-pinnamaneni/device-driver.git'
 GPIO_SITE_METHOD = git
