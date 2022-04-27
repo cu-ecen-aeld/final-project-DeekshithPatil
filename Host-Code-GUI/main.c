@@ -1,3 +1,8 @@
+/*
+* Brief - GUI based application that gets control information from the user and transmits it to the server (RPi)
+*
+* Author - Deekshith Reddy Patil, patil.deekshithreddy@colorado.edu
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -50,6 +55,7 @@ int main(int argc, char *argv[])
 
     while(1)
     {
+        /* Recieve information from the user and transmit it over the network */
         get_user_data(transmit_buffer,argc, argv);
 
         n = write(sockfd,transmit_buffer,strlen(transmit_buffer));

@@ -34,6 +34,9 @@ int hours = 0;
 int minutes = 0;
 int seconds = 0;
 
+/*
+* Callback function of load window
+*/
 static void load_button_handler(GtkWidget *widget,gpointer data)
 {
 
@@ -46,6 +49,9 @@ static void load_button_handler(GtkWidget *widget,gpointer data)
   gtk_widget_destroy(window);
 }
 
+/*
+* Call back function of mode window
+*/
 static void mode_button_handler(GtkWidget *widget,gpointer data)
 {
   if(widget == button1)
@@ -63,6 +69,9 @@ static void mode_button_handler(GtkWidget *widget,gpointer data)
   gtk_widget_destroy(window);
 }
 
+/*
+* Call back function of on_off window
+*/
 static void on_off_button_handler(GtkWidget *widget,gpointer data)
 {
 
@@ -75,6 +84,9 @@ static void on_off_button_handler(GtkWidget *widget,gpointer data)
   gtk_widget_destroy(window);
 }
 
+/*
+* Brief - Callback function of duration window
+*/
 void duration_button_handler(GtkWidget *wid,gpointer data)
  {
   duration = atoi(gtk_entry_get_text(GTK_ENTRY(durationEntry)));
@@ -90,6 +102,9 @@ void duration_button_handler(GtkWidget *wid,gpointer data)
   }
  }
 
+/*
+* Brief - Callback function of time instant window
+*/
  void time_instant_button_handler(GtkWidget *wid,gpointer data)
 {
 
@@ -119,6 +134,9 @@ void duration_button_handler(GtkWidget *wid,gpointer data)
 
 }
 
+/*
+* Brief - Used to get the first parameter in the packet that needs to be transmitted, i.e Load number
+*/
 static void load_window(GtkApplication *app, gpointer user_data)
 {
   /* create a new window, and set its title */
@@ -152,6 +170,16 @@ static void load_window(GtkApplication *app, gpointer user_data)
 
 }
 
+/*
+* Brief - Used to get the second parameter in the packet that needs to be transmitted, i.e mode of control
+* The following are the modes in which the load can be controlled
+* 0 - Togle the current state of the load
+* 1 - Set / Reset the electrical load
+* 2 - Set / Reset the electrical load for a specific duration of time
+* 3 - Set / Reset the electrical load at a particular instant of time
+*
+* NOTE: Here Set / Reset refers to Turning the load On / Off
+*/
 static void mode_window(GtkApplication *app, gpointer user_data)
 {
 
@@ -196,6 +224,9 @@ static void mode_window(GtkApplication *app, gpointer user_data)
 
 }
 
+/*
+* Brief - Used to get the third parameter in the packet that needs to be transmitted, i.e set / reset (or On / Off)
+*/
 static void on_off_window(GtkApplication *app, gpointer user_data)
 {
 
@@ -230,6 +261,10 @@ static void on_off_window(GtkApplication *app, gpointer user_data)
 
 }
 
+/*
+* Brief - Used to get the fourth paramter in the packet that needs to be transmitted, i.e duration
+* Is called only when mode is MODE_SET_RESET_DURATION
+*/
 static void duration_window(GtkApplication *app, gpointer user_data)
 {
   window = gtk_application_window_new (app);
@@ -253,6 +288,10 @@ static void duration_window(GtkApplication *app, gpointer user_data)
   gtk_widget_show_all (window);
 }
 
+/*
+* Brief - Used to get the fourth paramter in the packet that needs to be transmitted, i.e instant of time.
+* Is called only when mode is MODE_SET_RESET_INSTANT
+*/
 static void time_instant_window(GtkApplication *app, gpointer user_data)
 {
   window = gtk_application_window_new (app);
@@ -288,6 +327,9 @@ static void time_instant_window(GtkApplication *app, gpointer user_data)
   gtk_widget_show_all (window);
 }
 
+/*
+* Refer user_interface.h for description
+*/
 void get_user_data(char *res, int argc, char **argv)
 {
   GtkApplication *app;
