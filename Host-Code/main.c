@@ -1,19 +1,8 @@
-// #include <stdio.h>
-// #include <stdlib.h>
-// #include <string.h>
-// #include "user_interface.h"
-
-// int main()
-// {
-//     char transmit_buffer[1024];
-
-//     get_user_data(transmit_buffer);
-
-//     printf("Tx buffer = %s Length = %ld\n",transmit_buffer,strlen(transmit_buffer));
-
-//     return 0;
-// }
-
+/*
+* Brief - A terminal based application that gets control information from user and transnmits it to the server (RPi). 
+* 
+* Author - Deekshith Reddy Patil, patil.deekshithreddy@colorado.edu
+*/
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h> 
@@ -63,17 +52,14 @@ int main(int argc, char *argv[])
 
     while(1)
     {
+
+        /*Get the control data from user and transmit it over the socket*/
         get_user_data(transmit_buffer);
 
         n = write(sockfd,transmit_buffer,strlen(transmit_buffer));
 
         if(n < 0)
             error("Error on writing!\n");
-
-        int i = strncmp("Bye", transmit_buffer, 3);
-
-        if(i == 0)
-            break;
 
     }
 

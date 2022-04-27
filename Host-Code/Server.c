@@ -1,3 +1,8 @@
+/*
+* Brief - A simple program that acts a socket server. Used to test the client. 
+*
+* Author - Deekshith Reddy Patil, patil.deekshithreddy@colorado.edu
+*/
 #include <stdio.h> 
 #include <stdlib.h>
 #include <string.h> 

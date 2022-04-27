@@ -29,6 +29,10 @@ static int get_set_reset_val(void);
 static int get_duration_seconds(void);
 static void get_time_instant(char *instant);
 
+
+/*
+* Brief - Refer user_interface.h for function description
+*/
 void get_user_data(char *transmit_buffer)
 {
     int val;
